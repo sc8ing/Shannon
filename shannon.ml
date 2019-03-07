@@ -36,7 +36,7 @@ let rec findPat i p =
       | [] -> ans
       | i::is ->
         let ans' =
-          if !(areSame (i::is) p) then ans
+          if not (areSame (i::is) p) then ans
           else let nextChar = List.nth (i::is) (List.length p) in nextChar::ans
         in loop is p ans'
     in
